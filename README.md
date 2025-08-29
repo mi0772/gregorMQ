@@ -1,0 +1,110 @@
+# GregorMQ 🪳
+*A lightweight message broker in Go — in honor of Gregor Samsa from Kafka’s Metamorphosis.*
+
+---
+
+## 🎯 Objective
+GregorMQ is a **lightweight message broker written in Go**, designed for microservices.  
+- **Pub/Sub support**  
+- **Optional persistence**  
+- **Cluster discovery via gossip**  
+- **Zero-config startup** (works out of the box, optional YAML/JSON config)  
+- **Cloud-native ready** (Docker, K8s, Helm chart)  
+
+---
+
+## 🗂️ Roadmap
+
+### **M1 – Core Broker (single node)**
+- [ ] Define simple binary protocol (`[HEADER][PAYLOAD]` with magic, timestamp, key, value)  
+- [ ] Basic TCP connection (client → broker)  
+- [ ] Message publishing on a topic  
+- [ ] Subscription and message delivery  
+- [ ] Basic acknowledgments  
+
+📌 *Goal*: minimal working broker  
+
+---
+
+### **M2 – Persistence & Reliability**
+- [ ] Append-only log file persistence  
+- [ ] Configurable retention (time-based, size-based)  
+- [ ] Replay messages to new subscribers  
+- [ ] Recovery after restart  
+
+📌 *Goal*: basic resilience  
+
+---
+
+### **M3 – Clustering & Gossip**
+- [ ] Gossip protocol (Scuttlebutt-style) for node discovery  
+- [ ] Message replication across nodes  
+- [ ] Automatic failover  
+- [ ] Zero-touch configuration: add node → cluster discovers it  
+
+📌 *Goal*: distributed broker  
+
+---
+
+### **M4 – Advanced Features**
+- [ ] Topic partitions (parallel consumption)  
+- [ ] Consumer groups (Kafka-style)  
+- [ ] Message compression (Snappy/LZ4)  
+- [ ] Prometheus metrics + Grafana dashboard  
+
+📌 *Goal*: production-ready lightweight broker  
+
+---
+
+### **M5 – Ecosystem & Developer Experience**
+- [ ] Client SDK in Go (then JS, Python, Java)  
+- [ ] CLI `gregorctl` for topics, cluster, metrics  
+- [ ] Minimal Docker image (scratch/alpine)  
+- [ ] Helm chart for Kubernetes deploy  
+
+📌 *Goal*: developer-friendly & cloud-native  
+
+---
+
+## 🏗️ Repository Structure
+```
+gregormq/
+├── cmd/
+│   └── broker/        # broker main
+│   └── gregorctl/     # CLI client
+├── pkg/
+│   ├── protocol/      # binary protocol definition
+│   ├── broker/        # core pub/sub
+│   ├── storage/       # log persistence
+│   ├── discovery/     # gossip
+│   ├── metrics/       # prometheus integration
+├── client/
+│   └── go/            # Go SDK
+├── docs/
+│   ├── architecture.md
+│   ├── roadmap.md
+│   └── protocol.md
+└── tests/
+    └── integration/
+```
+
+---
+
+## 🚀 Tech Highlights
+- **Networking**: Go `net` for TCP connections  
+- **Concurrency**: goroutines, channels, sync primitives  
+- **Storage**: append-only log, mmap  
+- **Discovery**: gossip-based protocol  
+- **Monitoring**: Prometheus + Grafana  
+- **Packaging**: Docker, Helm, Kubernetes  
+
+---
+
+## ⭐ How to Gain Visibility
+- Add a **README.md with demo GIFs** (e.g., `docker run gregormq` + publish/subscribe)  
+- Use **badges** (Go Report Card, CI, Coverage, Release)  
+- Create **Good First Issues** for contributors  
+- Write a **blog post / LinkedIn post**:  
+  *“I built GregorMQ — a message broker in Go, inspired by Kafka, but lightweight and cloud-friendly.”*  
+
+---
