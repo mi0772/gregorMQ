@@ -88,23 +88,3 @@ gregormq/
     └── integration/
 ```
 
----
-
-## 🚀 Tech Highlights
-- **Networking**: Go `net` for TCP connections  
-- **Concurrency**: goroutines, channels, sync primitives  
-- **Storage**: append-only log, mmap  
-- **Discovery**: gossip-based protocol  
-- **Monitoring**: Prometheus + Grafana  
-- **Packaging**: Docker, Helm, Kubernetes  
-
----
-
-## ⭐ How to Gain Visibility
-- Add a **README.md with demo GIFs** (e.g., `docker run gregormq` + publish/subscribe)  
-- Use **badges** (Go Report Card, CI, Coverage, Release)  
-- Create **Good First Issues** for contributors  
-- Write a **blog post / LinkedIn post**:  
-  *“I built GregorMQ — a message broker in Go, inspired by Kafka, but lightweight and cloud-friendly.”*  
-
----
