@@ -1,72 +1,54 @@
 # GregorMQ 🪳
 *A lightweight message broker in Go — in honor of Gregor Samsa from Kafka’s Metamorphosis.*
 
----
-
-## 🎯 Objective
-GregorMQ is a **lightweight message broker written in Go**, designed for microservices.  
-- **Pub/Sub support**  
-- **Optional persistence**  
-- **Cluster discovery via gossip**  
-- **Zero-config startup** (works out of the box, optional YAML/JSON config)  
-- **Cloud-native ready** (Docker, K8s, Helm chart)  
+[![Go Report Card](https://goreportcard.com/badge/github.com/yourusername/gregormq)](https://goreportcard.com/report/github.com/yourusername/gregormq)
+[![Build Status](https://github.com/yourusername/gregormq/actions/workflows/ci.yml/badge.svg)](https://github.com/yourusername/gregormq/actions)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+[![Coverage Status](https://img.shields.io/codecov/c/github/yourusername/gregormq/main.svg)](https://codecov.io/gh/yourusername/gregormq)
 
 ---
 
-## 🗂️ Roadmap
+## Overview
+GregorMQ is a **lightweight, cloud-friendly message broker** written in Go.  
+It aims to provide the power of Kafka and RabbitMQ in a **simpler, faster, and smaller** package.
 
-### **M1 – Core Broker (single node)**
-- [ ] Define simple binary protocol (`[HEADER][PAYLOAD]` with magic, timestamp, key, value)  
-- [ ] Basic TCP connection (client → broker)  
-- [ ] Message publishing on a topic  
-- [ ] Subscription and message delivery  
-- [ ] Basic acknowledgments  
+⚠️ **Note:** The project is in its **early stages of development**. Many features are planned but not yet implemented.
 
-📌 *Goal*: minimal working broker  
-
----
-
-### **M2 – Persistence & Reliability**
-- [ ] Append-only log file persistence  
-- [ ] Configurable retention (time-based, size-based)  
-- [ ] Replay messages to new subscribers  
-- [ ] Recovery after restart  
-
-📌 *Goal*: basic resilience  
+- **Pub/Sub model**
+- **Persistence optional**
+- **Clustering via gossip protocol**
+- **Zero configuration** (works out of the box)
+- **Docker & Kubernetes ready**
 
 ---
 
-### **M3 – Clustering & Gossip**
-- [ ] Gossip protocol (Scuttlebutt-style) for node discovery  
-- [ ] Message replication across nodes  
-- [ ] Automatic failover  
-- [ ] Zero-touch configuration: add node → cluster discovers it  
+## Quickstart
 
-📌 *Goal*: distributed broker  
+### Run with Docker
+```bash
+docker run -d --name gregormq -p 7777:7777 ghcr.io/yourusername/gregormq:latest
+```
 
----
+### Publish a message
+```bash
+gregorctl publish --topic greetings --message "Hello Gregor!"
+```
 
-### **M4 – Advanced Features**
-- [ ] Topic partitions (parallel consumption)  
-- [ ] Consumer groups (Kafka-style)  
-- [ ] Message compression (Snappy/LZ4)  
-- [ ] Prometheus metrics + Grafana dashboard  
-
-📌 *Goal*: production-ready lightweight broker  
-
----
-
-### **M5 – Ecosystem & Developer Experience**
-- [ ] Client SDK in Go (then JS, Python, Java)  
-- [ ] CLI `gregorctl` for topics, cluster, metrics  
-- [ ] Minimal Docker image (scratch/alpine)  
-- [ ] Helm chart for Kubernetes deploy  
-
-📌 *Goal*: developer-friendly & cloud-native  
+### Subscribe to a topic
+```bash
+gregorctl subscribe --topic greetings
+# Output:
+# [greetings] Hello Gregor!
+```
 
 ---
 
-## 🏗️ Repository Structure
+## Roadmap
+See [docs/roadmap.md](docs/roadmap.md) for the full feature roadmap.
+
+---
+
+## Repository Structure
 ```
 gregormq/
 ├── cmd/
@@ -88,3 +70,23 @@ gregormq/
     └── integration/
 ```
 
+---
+
+## Contributing
+Contributions are welcome!
+- Open an issue for ideas, bugs, or feature requests
+- Submit a PR following the [contributing guide](CONTRIBUTING.md)
+
+---
+
+## License
+GregorMQ is released under the [Apache 2.0 License](LICENSE).
+
+---
+
+## Links
+- Documentation: coming soon
+- Roadmap: [docs/roadmap.md](docs/roadmap.md)
+- Blog post: coming soon
+
+---
